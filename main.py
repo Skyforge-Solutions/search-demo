@@ -15,8 +15,8 @@ def load_model():
     return SentenceTransformer('all-MiniLM-L6-v2')
 
 @st.cache_resource
-def compute_embeddings(data, model):
-    return model.encode([item['What I am looking for'] for item in data])
+def compute_embeddings(data, _model):
+    return _model.encode([item['What I am looking for'] for item in data])
 
 def semantic_search(query, data, embeddings, model, top_k=5):
     query_embedding = model.encode([query])
