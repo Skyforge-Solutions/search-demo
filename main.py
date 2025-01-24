@@ -25,7 +25,7 @@ def semantic_search(query, data, embeddings, model, top_k=10):
     return [(data[idx], similarities[idx]) for idx in top_indices]
 
 def main():
-    st.title('search demp')
+    st.title('search demo')
     
     data = load_data('Konnect_data.json')
     model = load_model()
