@@ -18,7 +18,7 @@ def load_model():
 def compute_embeddings(data, _model):
     return _model.encode([item['What I am looking for'] for item in data])
 
-def semantic_search(query, data, embeddings, model, top_k=5):
+def semantic_search(query, data, embeddings, model, top_k=10):
     query_embedding = model.encode([query])
     similarities = cosine_similarity(query_embedding, embeddings)[0]
     top_indices = similarities.argsort()[-top_k:][::-1]
